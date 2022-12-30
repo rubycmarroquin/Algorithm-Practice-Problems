@@ -10,12 +10,13 @@
 function textToNumberBinary(string) {
     // split the string into words
     const arrOfString = string.split(" ");
+    // holds the converted string 
     let convertedString = "";
     arrOfString.forEach(element => {
         convertedString += (element.toLowerCase() === "zero" ? "0" :
                            (element.toLowerCase() === "one" ? "1" : ""));
     });
-
+    // removes extra characters if not multiple of 8
     return (convertedString.length % 8 === 0 ? convertedString : 
         convertedString.substring(0, convertedString.length - (convertedString.length%8)));
 }
