@@ -10,15 +10,14 @@
 function textToNumberBinary(string) {
     // split the string into words
     const arrOfString = string.split(" ");
-    // remove extra words, limit is 8
-    if (arrOfString.length > 8) arrOfString.splice(8, arrOfString.length-8);
-    // holds the string with digits 
     let convertedString = "";
     arrOfString.forEach(element => {
         convertedString += (element.toLowerCase() === "zero" ? "0" :
                            (element.toLowerCase() === "one" ? "1" : ""));
     });
-    return (convertedString.length < 8 ? "" : convertedString);
+
+    return (convertedString.length % 8 === 0 ? convertedString : 
+        convertedString.substring(0, convertedString.length - (convertedString.length%8)));
 }
 
 /** Test Cases */
